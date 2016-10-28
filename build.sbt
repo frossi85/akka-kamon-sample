@@ -6,7 +6,7 @@ version := "2.3.12"
 
 scalaVersion := "2.11.7"
 
-val kamonVersion = "0.6.1"
+lazy val kamonVersion = "0.6.3"
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor" % "2.4.8",
