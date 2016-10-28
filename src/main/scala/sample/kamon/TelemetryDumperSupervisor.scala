@@ -10,6 +10,8 @@ class TelemetryDumperSupervisor extends Actor with ActorLogging {
 
   log.info("TelemetryDumperSupervisor started!")
 
+  val dumper = context.actorOf(TelemetryDumper.props(new SimpleBackoffStrategy, 0))
+
   override val supervisorStrategy = OneForOneStrategy(loggingEnabled = false) {
     case e: Exception =>
       log.error(e, "There was an error when trying to save telemetry data, restarting.")
@@ -19,7 +21,7 @@ class TelemetryDumperSupervisor extends Actor with ActorLogging {
   def receive: Receive = {
     case telemetry: Int =>
       Thread.sleep(40 * Random.nextInt(10))
-      context.actorOf(TelemetryDumper.props(new SimpleBackoffStrategy, telemetry))
+      dumper ! telemetry
     case Saved(telemetry) =>
     //Make some post process
   }

@@ -27,7 +27,8 @@ class TelemetryDumper(backoffStrategy: BackoffStrategy, telemetry: Int)
       //indicate to supervisor that the operation was a success
       context.parent ! Saved(telemetry)
       // Don't forget to stop the actor after it has nothing more to do
-      context.stop(self)
+
+      //context.stop(self) //Comment this to use the same actor
   }
 }
 
