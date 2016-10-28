@@ -1,12 +1,8 @@
 package sample.kamon
 
 import akka.actor._
-import MessageGenerator._
-import RandomNumberActor._
 import akka.pattern.{Backoff, BackoffSupervisor}
 import kamon.Kamon
-import sample.kamon.KafkaActorConsumer.Start
-
 import scala.concurrent.duration._
 
 object Main extends App {
@@ -16,8 +12,6 @@ object Main extends App {
   val system = ActorSystem("application")
 
   val actorProps = Props[LongConsumer]
-
-  //val actor = system.actorOf(actorProps, "telemetry-consumer")
 
   val supervisor = BackoffSupervisor.props(
     Backoff.onStop(

@@ -1,11 +1,7 @@
 package sample.kamon
 
-import akka.actor.{Actor, ActorLogging, Props}
-import sample.kamon.KafkaActorConsumer.{Consume, Start}
-import sample.kamon.MessageGenerator.{ConstantLoad, Peak, Schedule}
-import sample.kamon.RandomNumberActor.{GenerateNumber, GenerateSecureNumber}
-
-import scala.util.Random
+import akka.actor.{Actor, ActorLogging}
+import sample.kamon.KafkaActorConsumer.Consume
 
 class LongConsumer extends Actor with ActorLogging {
 
