@@ -1,3 +1,4 @@
+### Scala template
 *.class
 *.log
 
@@ -6,7 +7,7 @@
 .history
 .lib/
 dist/*
-target/
+target
 lib_managed/
 src_managed/
 project/boot/
@@ -15,3 +16,13 @@ project/plugins/project/
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
+*.iml
+*.ipr
+*.iws
+.idea
+out
+*.jks
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
